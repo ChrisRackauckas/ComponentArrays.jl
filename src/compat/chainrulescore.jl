@@ -16,4 +16,4 @@ function ChainRulesCore.ProjectTo(ca::ComponentArray)
     return ChainRulesCore.ProjectTo{ComponentArray}(; project=ChainRulesCore.ProjectTo(getdata(ca)), axes=getaxes(ca))
 end
 
-(p::ChainRulesCore.ProjectTo{ComponentArray})(dx::AbstractArray) = ComponentArray(p.project(dx), p.axes)
+(p::ChainRulesCore.ProjectTo{<:ComponentArray})(dx::AbstractArray) = ComponentArray(p.project(dx), p.axes)
